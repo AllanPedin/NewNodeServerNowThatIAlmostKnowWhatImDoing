@@ -13,9 +13,8 @@ var app = express();
 
 //
 var personSchema = mongoose.Schema({
-	   name: String,
-	   age: Number,
-	   nationality: String
+	   Name: String,
+	   ID: Number,
 	});
 var Person = mongoose.model("Person", personSchema);
 //
@@ -44,6 +43,27 @@ app.get('/SkillsFramework', function(req, res){
 
 app.post('/SkillsFramework', function(req, res){
 	   console.log(req.body);
+	   //
+	   var personInfo = req.body; //Get the parsed information
+	   
+	   if(!personInfo.Name || !personInfo.ID){
+	      res.render('show_message', {
+	         message: "Sorry, you provided worng info", type: "error"});
+	   } else {
+	      var newPerson = new Person({
+	         Name: personInfo.name,
+	         ID: personInfo.age
+	      });
+			
+	      newPerson.save(function(err, Person){
+	         if(err)
+	            res.render('show_message', {message: "Database error", type: "error"});
+	         else
+	            res.render('show_message', {
+	               message: "New person added", type: "success", person: personInfo});
+	      });
+	   }
+	   //
 	   
 	   res.send("Created Your Person!(jk nothing happened)");
 	});
