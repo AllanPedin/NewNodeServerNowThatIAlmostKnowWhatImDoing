@@ -71,7 +71,7 @@ app.post('/SkillsFramework', function(req, res){
 app.get('/SkillsFramework/People', function(req, res){
    Person.find(function(err, response){
       res.json(response);
-   });
+   })
 ///////////////////////
 app.use(function(req, res){
 	   console.log('Request dealt with at '+ Date.now());
