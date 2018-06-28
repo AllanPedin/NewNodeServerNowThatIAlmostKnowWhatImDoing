@@ -69,7 +69,7 @@ app.post('/AddSkills', function(req, res){
 	            res.render('show_message', {message: "Database error", type: "error"});
 	         else
 	            res.render('show_message', {
-	               message: "New Skill added", type: "success", person: skillInfo});
+	               message: "New Skill added", type: "success", skill: skillInfo});
 	      });
 	   }
 	   //
@@ -113,6 +113,10 @@ app.get('/SkillsFrameWork/:name/:id',function(req,res){
 		   console.log(response);
 		   res.json(response);
 		});
+})
+
+app.get('/*',function(req,res){
+	res.send("404 error page DNE")
 })
 ///////////////////////
 app.use(function(req, res){
