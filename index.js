@@ -4,7 +4,10 @@
 var express = require('express');
 var bodyParser =require('body-parser');
 var multer = require('multer');
+var mongoose = require('mongoose');
 
+
+mongoose.connect('mongodb://localhost/my_db');
 var upload = multer();
 var app = express();
 
