@@ -55,7 +55,7 @@ app.post('/AddSkills', function(req, res){
 	   //
 	   var skillInfo = req.body; //Get the parsed information
 	   
-	   if(!skillInfo.Name || !SkillInfo.ID){
+	   if(!skillInfo.Name || !skillInfo.ID){
 	      res.render('show_message', {
 	         message: "Sorry, you provided worng info", type: "error"});
 	   } else {
