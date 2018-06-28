@@ -18,6 +18,12 @@ var personSchema = mongoose.Schema({
 	   Skillset: [],
 	});
 var Person = mongoose.model("Person", personSchema);
+var skillSchema = mongoose.Schema({
+	   Name: String,
+	   ID: Number,
+	   Description: String,
+	});
+var Skill = mongoose.model("Skill", skillSchema);
 //
 
 //app.get('/SkillsFramework', function(req, res){
@@ -38,11 +44,39 @@ app.use(function(req, res, next){
 });
 
 //////////////////////
-app.get('/SkillsFramework', function(req, res){
+app.get('/AddPeople', function(req, res){
 	   res.render('SkillsFrameWorkLandingPage');
 	});
+app.get('/AddSkills', function(req, res){
+	   res.render('FrameworkSkills');
+	});
+app.post('/AddSkills', function(req, res){
+	   console.log(req.body);
+	   //
+	   var skillInfo = req.body; //Get the parsed information
+	   
+	   if(!skillInfo.Name || !SkillInfo.ID){
+	      res.render('show_message', {
+	         message: "Sorry, you provided worng info", type: "error"});
+	   } else {
+	      var newSkill = new Skill({
+	         Name: skillInfo.Name,
+	         ID: skillInfo.ID
+	      });
+			
+	      newSkill.save(function(err, Person){
+	         if(err)
+	            res.render('show_message', {message: "Database error", type: "error"});
+	         else
+	            res.render('show_message', {
+	               message: "New Skill added", type: "success", person: skillInfo});
+	      });
+	   }
+	   //
+	   
+	});
 
-app.post('/SkillsFramework', function(req, res){
+app.post('/AddPeople', function(req, res){
 	   console.log(req.body);
 	   //
 	   var personInfo = req.body; //Get the parsed information
