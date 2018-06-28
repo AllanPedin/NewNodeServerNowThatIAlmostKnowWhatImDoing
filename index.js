@@ -15,6 +15,7 @@ var app = express();
 var personSchema = mongoose.Schema({
 	   Name: String,
 	   ID: Number,
+	   Skillset: [],
 	});
 var Person = mongoose.model("Person", personSchema);
 //
@@ -66,6 +67,7 @@ app.post('/SkillsFramework', function(req, res){
 	   //
 	   
 	});
+//lists all people
 app.get('/SkillsFramework/People', function(req, res){
 	   Person.find(function(err, response){
 	      res.json(response);
