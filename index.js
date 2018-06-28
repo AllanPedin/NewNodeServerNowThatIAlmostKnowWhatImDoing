@@ -73,6 +73,12 @@ app.get('/SkillsFramework/People', function(req, res){
 	      res.json(response);
 	   });
 	});
+//route for looking people up
+app.get('/SkillsFrameWork/:name/:id',function(req,res){
+	Person.findOneAndUpdate({Name: name}, {ID: id}, function(err, response) {
+		   console.log(response);
+		});
+})
 ///////////////////////
 app.use(function(req, res){
 	   console.log('Request dealt with at '+ Date.now());
