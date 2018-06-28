@@ -65,7 +65,6 @@ app.post('/SkillsFramework', function(req, res){
 	   }
 	   //
 	   
-	   res.send("Created Your Person!(jk nothing happened)");
 	});
 ///////////////////////
 app.use(function(req, res){
