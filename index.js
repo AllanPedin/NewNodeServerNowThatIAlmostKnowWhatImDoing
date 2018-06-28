@@ -75,7 +75,7 @@ app.get('/SkillsFramework/People', function(req, res){
 	});
 //route for looking people up
 app.get('/SkillsFrameWork/:name/:id',function(req,res){
-	Person.findOneAndUpdate({Name: name}, {ID: id}, function(err, response) {
+	Person.findOneAndUpdate({Name: req.params.name}, {ID: req.params.id}, function(err, response) {
 		   console.log(response);
 		});
 })
