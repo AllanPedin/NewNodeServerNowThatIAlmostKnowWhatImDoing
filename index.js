@@ -107,6 +107,11 @@ app.get('/SkillsFramework/People', function(req, res){
 	      res.json(response);
 	   });
 	});
+app.get('/SkillsFramework/Skills', function(req, res){
+	   Skill.find(function(err, response){
+	      res.json(response);
+	   });
+	});
 //route for looking people up
 app.get('/SkillsFrameWork/:name/:id',function(req,res){
 	Person.findOneAndUpdate({Name: req.params.name}, {ID: req.params.id}, function(err, response) {
