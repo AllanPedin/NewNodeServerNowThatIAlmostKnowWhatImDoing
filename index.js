@@ -51,8 +51,8 @@ app.post('/SkillsFramework', function(req, res){
 	         message: "Sorry, you provided worng info", type: "error"});
 	   } else {
 	      var newPerson = new Person({
-	         Name: personInfo.name,
-	         ID: personInfo.age
+	         Name: personInfo.Name,
+	         ID: personInfo.ID
 	      });
 			
 	      newPerson.save(function(err, Person){
