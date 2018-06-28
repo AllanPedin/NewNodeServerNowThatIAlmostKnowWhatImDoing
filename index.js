@@ -13,7 +13,7 @@ var app = express();
 
 //
 var personSchema = mongoose.Schema({
-	   Name: String,
+	   Name: Number,
 	   ID: Number,
 	});
 var Person = mongoose.model("Person", personSchema);
