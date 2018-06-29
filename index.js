@@ -41,8 +41,11 @@ app.use(function(req, res, next){
 });
 
 //////////////////////
-app.get('/AddSkillToPerson', function(req.res){
+app.get('/AddSkillToPerson', function(req,res){
 	res.render('Skill->PersonPage')
+})
+app.post('/AddSkillToPerson', function(req,res){
+	res.render('SkillAddedToPerson')
 })
 
 app.get('/AddPeople', function(req, res){
