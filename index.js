@@ -15,7 +15,7 @@ var app = express();
 var personSchema = mongoose.Schema({
 	   Name: String,
 	   ID: Number,
-	   Skillset: new Array(),
+	//   Skillset: new Array(),
 	});
 var Person = mongoose.model("Person", personSchema);
 var skillSchema = mongoose.Schema({
@@ -39,6 +39,9 @@ app.use(express.static('public'));
 //////////////////////
 app.get('/ChangeSkillDescription', function(req,res){
 	res.render('ChangeSkillPage')
+	console.log("Change skill page requested");
+})
+app.post('/ChangeSkillDescription', function(req,res){
 	console.log("Change skill page requested");
 })
 
