@@ -97,7 +97,7 @@ app.post('/AddPeople', function(req, res){
 	      var newPerson = new Person({
 	         Name: personInfo.Name,
 	         ID: personInfo.ID
-	         Skillset: new Array(0,1);
+	         Skillset: new Array(0,1)
 	      });
 			
 	      newPerson.save(function(err, Person){
