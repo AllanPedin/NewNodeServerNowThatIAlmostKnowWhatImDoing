@@ -37,12 +37,17 @@ app.use(express.static('public'));
 
 
 //////////////////////
+app.get('/ChangeSkillDescription', function(req,res){
+	res.render('ChangeSkillPage')
+	console.log("Change skill page requested");
+})
+
 app.get('/AddSkillToPerson', function(req,res){
 	console.log("Add skill to person page requested");
 	res.render('Skill-PersonPage')
 })
 app.post('/AddSkillToPerson', function(req,res){
-	Person.update({req.params.ID},)
+	//Person.update({req.params.PersonID},)
 	res.render('SkillAddedToPerson')
 	console.log("add skill to person requested(POST)");
 })
