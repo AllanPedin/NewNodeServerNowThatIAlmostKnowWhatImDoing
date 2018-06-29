@@ -24,11 +24,8 @@ var skillSchema = mongoose.Schema({
 	   Description: String,
 	});
 var Skill = mongoose.model("Skill", skillSchema);
-//
 
-//app.get('/SkillsFramework', function(req, res){
-//	   res.render('SkillsFrameWorkLandingPage');
-//	});
+
 
 app.set('view engine', 'jade');
 app.set('views', './views');
@@ -44,6 +41,10 @@ app.use(function(req, res, next){
 });
 
 //////////////////////
+app.get('/AddSkillToPerson', function(req.res){
+	res.render('Skill->PersonPage')
+})
+
 app.get('/AddPeople', function(req, res){
 	   res.render('SkillsFrameWorkLandingPage');
 	});
