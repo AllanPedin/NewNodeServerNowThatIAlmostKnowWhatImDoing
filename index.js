@@ -15,7 +15,7 @@ var app = express();
 var personSchema = mongoose.Schema({
 	   Name: String,
 	   ID: Number,
-	   Skillset: [],
+	   Skillset: [1,2],
 	});
 var Person = mongoose.model("Person", personSchema);
 var skillSchema = mongoose.Schema({
