@@ -1,15 +1,15 @@
 html
 html
-    head
-        title Add Skills to people!
-    body    
-        form(action = '/AddSkillToPerson',method ="POST")
-            div
-                label(for = "say") ID Of Person
-                input(name = "Name")
-             br
-             div
-              label(for = "to") ID of Skill:
-             input(name = "ID")
-             br
-              button(type = "submit") Create NEW Person
+   head
+      title Add Skills to people!
+   body    
+      form(action = '/AddSkillToPerson',method ="POST")
+         div
+            label(for = "say") ID Of Person:
+            input(name = "Name")
+         br
+         div
+            label(for = "to") ID of Skill:
+            input(name = "ID")
+         br
+         button(type = "submit") Add Skill to Person
