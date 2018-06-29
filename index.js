@@ -35,28 +35,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array()); 
 app.use(express.static('public'));
 
-app.use(function(req, res, next){
-	   console.log("A new request received at " + Date.now());
-	   next();
-});
 
 //////////////////////
 app.get('/AddSkillToPerson', function(req,res){
-	Person.findOneAndUpdate({ID: req.params.PersonID}, function(err, response) {
-			Skillset.add(req.params.SkillID);
-		   console.log(response);
-		});
+	console.log("Add skill to person page requested");
 	res.render('Skill-PersonPage')
 })
 app.post('/AddSkillToPerson', function(req,res){
+	Person.findOneAndUpdate({ID: req.params.PersonID}, function(err, response) {
+		Skillset.add(req.params.SkillID);
+	   console.log(response);
+	});
 	res.render('SkillAddedToPerson')
+	console.log("add skill to person requested(POST)");
 })
 
 app.get('/AddPeople', function(req, res){
 	   res.render('SkillsFrameWorkLandingPage');
+	   console.log("addPeoplePage requested");
 	});
 app.get('/AddSkills', function(req, res){
 	   res.render('FrameworkSkills');
+	   console.log("addSkillsPAge requested");
 	});
 app.post('/AddSkills', function(req, res){
 	   console.log(req.body);
@@ -81,6 +81,7 @@ app.post('/AddSkills', function(req, res){
 	      });
 	   }
 	   //
+	   console.log("Skill ADD requested(POST)");
 	   
 	});
 
@@ -107,6 +108,7 @@ app.post('/AddPeople', function(req, res){
 	      });
 	   }
 	   //
+	   console.log("Person ADD requested(POST)");
 	   
 	});
 //lists all people
@@ -114,11 +116,13 @@ app.get('/SkillsFramework/People', function(req, res){
 	   Person.find(function(err, response){
 	      res.json(response);
 	   });
+	   console.log("People requested");
 	});
 app.get('/SkillsFramework/Skills', function(req, res){
 	   Skill.find(function(err, response){
 	      res.json(response);
 	   });
+	   console.log("Skills requested");
 	});
 //route for looking people up
 app.get('/SkillsFrameWork/:name/:id',function(req,res){
@@ -126,14 +130,12 @@ app.get('/SkillsFrameWork/:name/:id',function(req,res){
 		   console.log(response);
 		   res.json(response);
 		});
+	console.log("person requested");
 })
 
 app.get('/*',function(req,res){
 	res.send("404 error page DNE")
 })
 ///////////////////////
-app.use(function(req, res){
-	   console.log('Request dealt with at '+ Date.now());
-	});
 
 app.listen(8000);
