@@ -42,6 +42,10 @@ app.use(function(req, res, next){
 
 //////////////////////
 app.get('/AddSkillToPerson', function(req,res){
+	Person.findOneAndUpdate({ID: req.params.PersonID}, function(err, response) {
+			Skillset.add(req.params.SkillID);
+		   console.log(response);
+		});
 	res.render('Skill-PersonPage')
 })
 app.post('/AddSkillToPerson', function(req,res){
