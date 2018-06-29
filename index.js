@@ -15,7 +15,7 @@ var app = express();
 var personSchema = mongoose.Schema({
 	   Name: String,
 	   ID: Number,
-	   Skillset: [1,2],
+	   Skillset: [],
 	});
 var Person = mongoose.model("Person", personSchema);
 var skillSchema = mongoose.Schema({
@@ -97,6 +97,7 @@ app.post('/AddPeople', function(req, res){
 	      var newPerson = new Person({
 	         Name: personInfo.Name,
 	         ID: personInfo.ID
+	         Skillset: new Array(0,1);
 	      });
 			
 	      newPerson.save(function(err, Person){
