@@ -64,11 +64,11 @@ app.post('/AddSkills', function(req, res){
 	         ID: skillInfo.ID
 	      });
 			
-	      newSkill.save(function(err, Person){
+	      newSkill.save(function(err, Skill){
 	         if(err)
-	            res.render('show_message', {message: "Database error", type: "error"});
+	            res.render('show_message_skill', {message: "Database error", type: "error"});
 	         else
-	            res.render('show_message', {
+	            res.render('show_message_skill', {
 	               message: "New Skill added", type: "success", skill: skillInfo});
 	      });
 	   }
