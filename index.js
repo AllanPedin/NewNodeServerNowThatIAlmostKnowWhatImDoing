@@ -42,10 +42,7 @@ app.get('/AddSkillToPerson', function(req,res){
 	res.render('Skill-PersonPage')
 })
 app.post('/AddSkillToPerson', function(req,res){
-	Person.findOneAndUpdate({ID: req.params.PersonID}, function(err, response) {
-		Skillset.add(req.params.SkillID);
-	   console.log(response);
-	});
+	Person.update({req.params.ID},)
 	res.render('SkillAddedToPerson')
 	console.log("add skill to person requested(POST)");
 })
@@ -97,7 +94,6 @@ app.post('/AddPeople', function(req, res){
 	      var newPerson = new Person({
 	         Name: personInfo.Name,
 	         ID: personInfo.ID
-	         Skillset: new Array(0,1)
 	      });
 			
 	      newPerson.save(function(err, Person){
